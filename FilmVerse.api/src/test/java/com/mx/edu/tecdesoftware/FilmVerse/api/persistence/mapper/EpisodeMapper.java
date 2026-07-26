@@ -22,6 +22,6 @@ public interface EpisodeMapper {
     @Mapping(source = "title", target = "titulo")
     @Mapping(source = "duration", target = "duracion")
     @Mapping(source = "description", target = "descripcion")
-    Episode toEpisodio(Episode episode);
+    Episodio toEpisodio(Episode episode);
 
 }
