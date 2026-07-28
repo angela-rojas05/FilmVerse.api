@@ -1,6 +1,7 @@
 package com.mx.edu.tecdesoftware.FilmVerse.api.persistence.entity;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,15 +26,22 @@ public class Serie {
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "estudio_id")
+    @JoinColumn(name = "estudio_id", nullable = false)
     private Estudio estudio;
 
     @ManyToOne
-    @JoinColumn(name = "genero_id")
+    @JoinColumn(name = "genero_id", nullable = false)
     private Genero genero;
 
-    @OneToMany(mappedBy = "serie")
-    private List<Temporada> temporadas;
+    @OneToMany(
+            mappedBy = "serie",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Temporada> temporadas = new ArrayList<>();
+
+    public Serie() {
+    }
 
     public Integer getSerieId() {
         return serieId;

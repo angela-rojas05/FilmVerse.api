@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {SeasonMapper.class})
 public interface EpisodeMapper {
 
     @Mapping(source = "episodioId", target = "episodeId")
@@ -15,18 +15,19 @@ public interface EpisodeMapper {
     @Mapping(source = "titulo", target = "title")
     @Mapping(source = "duracion", target = "duration")
     @Mapping(source = "descripcion", target = "description")
-    @Mapping(source = "temporada.temporadaId", target = "seasonId")
+    @Mapping(source = "temporada", target = "season")
     Episode toEpisode(Episodio episodio);
-
 
     @Mapping(source = "episodeId", target = "episodioId")
     @Mapping(source = "episodeNumber", target = "numeroEpisodio")
     @Mapping(source = "title", target = "titulo")
     @Mapping(source = "duration", target = "duracion")
     @Mapping(source = "description", target = "descripcion")
+    @Mapping(source = "season", target = "temporada")
     Episodio toEpisodio(Episode episode);
 
     List<Episode> toEpisode(List<Episodio> episodios);
 
     List<Episodio> toEpisodio(List<Episode> episodes);
+
 }
