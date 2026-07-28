@@ -1,4 +1,5 @@
 package com.mx.edu.tecdesoftware.FilmVerse.api.domain;
+
 public class Episode {
 
     private Integer episodeId;
@@ -6,7 +7,8 @@ public class Episode {
     private String title;
     private Integer duration;
     private String description;
-    private Integer seasonId;
+
+    private Season season;
 
     public Integer getEpisodeId() {
         return episodeId;
@@ -48,11 +50,12 @@ public class Episode {
         this.description = description;
     }
 
-    public Integer getSeasonId() {
-        return seasonId;
+    public Season getSeason() {
+        return season;
     }
 
-    public void setSeasonId(Integer seasonId) {
-        this.seasonId = seasonId;
+    public void setSeason(Season season) {
+        this.season = season;
     }
+
 }

@@ -1,4 +1,7 @@
 package com.mx.edu.tecdesoftware.FilmVerse.api.domain;
+
+import java.util.List;
+
 public class SeriesD {
 
     private Integer seriesId;
@@ -6,6 +9,11 @@ public class SeriesD {
     private String synopsis;
     private Integer releaseYear;
     private String status;
+
+    private Studio studio;
+    private Genre genre;
+
+    private List<Season> seasons;
 
     public Integer getSeriesId() {
         return seriesId;
@@ -46,4 +54,29 @@ public class SeriesD {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Studio getStudio() {
+        return studio;
+    }
+
+    public void setStudio(Studio studio) {
+        this.studio = studio;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public List<Season> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<Season> seasons) {
+        this.seasons = seasons;
+    }
+
 }
