@@ -5,6 +5,8 @@ import com.mx.edu.tecdesoftware.FilmVerse.api.persistence.entity.Episodio;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface EpisodeMapper {
 
@@ -24,4 +26,7 @@ public interface EpisodeMapper {
     @Mapping(source = "description", target = "descripcion")
     Episodio toEpisodio(Episode episode);
 
+    List<Episode> toEpisode(List<Episodio> episodios);
+
+    List<Episodio> toEpisodio(List<Episode> episodes);
 }

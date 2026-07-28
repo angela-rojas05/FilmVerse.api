@@ -5,6 +5,8 @@ import com.mx.edu.tecdesoftware.FilmVerse.api.persistence.entity.Serie;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface SeriesMapper {
 
@@ -22,4 +24,7 @@ public interface SeriesMapper {
     @Mapping(source = "status", target = "estado")
     Serie toSerie(SeriesD seriesD);
 
+    List<SeriesD> toSeries(List<Serie> series);
+
+    List<Serie> toSerie(List<SeriesD> series);
 }

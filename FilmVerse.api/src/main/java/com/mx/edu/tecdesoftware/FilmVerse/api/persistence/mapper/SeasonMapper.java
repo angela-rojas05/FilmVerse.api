@@ -5,6 +5,8 @@ import com.mx.edu.tecdesoftware.FilmVerse.api.persistence.entity.Temporada;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface SeasonMapper {
 
@@ -18,4 +20,7 @@ public interface SeasonMapper {
     @Mapping(source = "releaseDate", target = "fechaLanzamiento")
     Temporada toTemporada(Season seasonD);
 
+    List<Season> toSeason(List<Temporada> temporadas);
+
+    List<Temporada> toTemporada(List<Season> seasons);
 }
