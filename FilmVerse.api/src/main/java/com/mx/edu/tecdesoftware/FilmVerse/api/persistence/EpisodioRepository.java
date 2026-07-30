@@ -41,4 +41,17 @@ public class EpisodioRepository implements EpisodeRepository {
     public void delete(Integer episodeId) {
         episodioCrudRepository.deleteById(episodeId);
     }
+
+    @Override
+    public Optional<Episode> getBySeasonAndNumber(
+            Integer seasonId,
+            Integer episodeNumber) {
+
+        return episodioCrudRepository
+                .findByTemporadaTemporadaIdAndNumeroEpisodio(
+                        seasonId,
+                        episodeNumber)
+                .map(episodio -> mapper.toEpisode(episodio));
+
+    }
 }

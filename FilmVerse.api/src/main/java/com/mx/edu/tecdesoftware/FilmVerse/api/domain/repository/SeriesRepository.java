@@ -14,4 +14,7 @@ public interface SeriesRepository {
 
     void delete(Integer seriesId);
 
+    Optional<SeriesD> getByTitle(String title);
+
+
 }

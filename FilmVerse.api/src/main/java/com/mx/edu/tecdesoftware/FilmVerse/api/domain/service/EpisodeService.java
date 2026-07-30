@@ -23,7 +23,16 @@ public class EpisodeService {
     }
 
     public Episode save(Episode episode) {
+
+        if (episodeRepository.getBySeasonAndNumber(
+                episode.getSeason().getSeasonId(),
+                episode.getEpisodeNumber()).isPresent()) {
+
+            throw new RuntimeException("Episode already exists");
+        }
+
         return episodeRepository.save(episode);
+
     }
 
     public void delete(Integer episodeId) {

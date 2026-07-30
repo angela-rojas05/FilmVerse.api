@@ -23,7 +23,13 @@ public class StudioService {
     }
 
     public Studio save(Studio studio) {
+
+        if (studioRepository.getByName(studio.getName()).isPresent()) {
+            throw new RuntimeException("Studio already exists");
+        }
+
         return studioRepository.save(studio);
+
     }
 
     public void delete(Integer studioId) {

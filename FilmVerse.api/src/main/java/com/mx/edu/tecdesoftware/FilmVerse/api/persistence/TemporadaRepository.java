@@ -41,4 +41,15 @@ public class TemporadaRepository implements SeasonRepository {
     public void delete(Integer seasonId) {
         temporadaCrudRepository.deleteById(seasonId);
     }
+
+    @Override
+    public Optional<Season> getBySeriesAndNumber(
+            Integer seriesId,
+            Integer seasonNumber) {
+
+        return temporadaCrudRepository
+                .findBySerieSerieIdAndNumeroTemporada(seriesId, seasonNumber)
+                .map(temporada -> mapper.toSeason(temporada));
+
+    }
 }

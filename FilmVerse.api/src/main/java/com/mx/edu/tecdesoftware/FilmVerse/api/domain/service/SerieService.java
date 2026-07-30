@@ -23,6 +23,11 @@ public class SerieService {
     }
 
     public SeriesD save(SeriesD series) {
+
+        if (seriesRepository.getByTitle(series.getTitle()).isPresent()) {
+            throw new RuntimeException("Series already exists");
+        }
+
         return seriesRepository.save(series);
     }
 
