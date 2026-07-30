@@ -41,4 +41,12 @@ public class SerieRepository implements SeriesRepository {
     public void delete(Integer seriesId) {
         serieCrudRepository.deleteById(seriesId);
     }
+
+    @Override
+    public Optional<SeriesD> getByTitle(String title) {
+
+        return serieCrudRepository.findByTitulo(title)
+                .map(serie -> mapper.toSeriesD(serie));
+
+    }
 }

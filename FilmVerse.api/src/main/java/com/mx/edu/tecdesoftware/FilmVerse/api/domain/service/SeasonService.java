@@ -23,7 +23,16 @@ public class SeasonService {
     }
 
     public Season save(Season season) {
+
+        if (seasonRepository.getBySeriesAndNumber(
+                season.getSeries().getSeriesId(),
+                season.getSeasonNumber()).isPresent()) {
+
+            throw new RuntimeException("Season already exists");
+        }
+
         return seasonRepository.save(season);
+
     }
 
     public void delete(Integer seasonId) {

@@ -15,4 +15,9 @@ public interface EpisodeRepository {
 
     void delete(Integer episodeId);
 
+    Optional<Episode> getBySeasonAndNumber(
+            Integer seasonId,
+            Integer episodeNumber
+    );
+
 }

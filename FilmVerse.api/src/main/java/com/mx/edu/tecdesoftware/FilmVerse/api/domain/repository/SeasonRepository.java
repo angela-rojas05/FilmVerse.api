@@ -15,4 +15,9 @@ public interface SeasonRepository {
 
     void delete(Integer seasonId);
 
+    Optional<Season> getBySeriesAndNumber(
+            Integer seriesId,
+            Integer seasonNumber
+    );
+
 }

@@ -15,4 +15,6 @@ public interface StudioRepository {
 
     void delete(Integer studioId);
 
+    Optional<Studio> getByName(String name);
+
 }
