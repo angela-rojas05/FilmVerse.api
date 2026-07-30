@@ -5,6 +5,8 @@ import com.mx.edu.tecdesoftware.FilmVerse.api.persistence.entity.Estudio;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface StudioMapper {
 
@@ -20,4 +22,7 @@ public interface StudioMapper {
     @Mapping(source = "foundationYear", target = "anioFundacion")
     Estudio toEstudio(Studio studio);
 
+    List<Studio> toStudio(List<Estudio> estudios);
+
+    List<Estudio> toEstudio(List<Studio> studios);
 }
