@@ -3,7 +3,9 @@ package com.mx.edu.tecdesoftware.FilmVerse.api.domain.service;
 import com.mx.edu.tecdesoftware.FilmVerse.api.domain.SeriesD;
 import com.mx.edu.tecdesoftware.FilmVerse.api.domain.repository.SeriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +27,10 @@ public class SerieService {
     public SeriesD save(SeriesD series) {
 
         if (seriesRepository.getByTitle(series.getTitle()).isPresent()) {
-            throw new RuntimeException("Series already exists");
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Series already exists"
+            );
         }
 
         return seriesRepository.save(series);
